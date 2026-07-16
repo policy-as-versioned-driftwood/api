@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: default
+  labels:
+    mycompany.com/policy-version: "2.2.0"
+    department: platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+        mycompany.com/policy-version: "2.2.0"
+        department: platform
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/policy-as-versioned-flux/api@sha256:1b2107c11dda2958c3ea10d44f9f542e26b850f5e924572bbb6326f4f79063d5 # v1.0.0
+          ports:
+            - containerPort: 8080
