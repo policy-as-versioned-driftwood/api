@@ -12,3 +12,7 @@ very different dependency hygiene, both visible on the estate dashboard.
 
 Push a `vX.Y.Z` tag; `.github/workflows/release.yml` builds and publishes
 `ghcr.io/policy-as-versioned-flux/api:vX.Y.Z` and prints the digest in the run summary.
+
+## Correction, 2026-10-03 (eco-system ticket 154)
+
+The historical description "good citizen" describes policy declarations, not vulnerability health. The 2026-09-25 scan found eight HIGH CVEs in Go 1.26.5 and an end-of-support Alpine 3.20.10 base. New inventory records grade the served image digest; the label does not assert a clean scan.
